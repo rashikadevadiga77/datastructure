@@ -14,7 +14,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	public Node<T> getRoot() {
 		return root;
 	}
-	
+
 	public void add(T element) {
 		if (this.root == null) {
 			this.root = new Node<T>(element);
@@ -55,6 +55,24 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			print(node.getLeft());
 			System.out.print(node.getData() + " ");
 			print(node.getRight());
+		}
+	}
+
+	public int height() {
+		return height(root);
+	}
+
+	private int height(Node root) {
+		if (root == null) {
+			return 0;
+		} else {
+			int leftHeight = height(root.getLeft());
+			int rightHeight = height(root.getRight());
+			if (leftHeight > rightHeight) {
+				return (leftHeight + 1);
+			} else {
+				return (rightHeight + 1);
+			}
 		}
 	}
 }

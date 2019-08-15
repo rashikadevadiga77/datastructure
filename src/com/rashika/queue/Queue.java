@@ -14,7 +14,7 @@ public class Queue<T> {
 		}
 	}
 
-	public Node<T> dequeue() {
+	public T dequeue() {
 		if (front == null) {
 			return null;
 		} else {
@@ -24,7 +24,7 @@ public class Queue<T> {
 			} else {
 				front = front.getNext();
 			}
-			return node;
+			return node.getData();
 		}
 	}
 
@@ -45,5 +45,15 @@ public class Queue<T> {
 			System.out.print(node.getData() + " ");
 			node = node.getNext();
 		}
+	}
+
+	public int size() {
+		int size = 0;
+		Node node = front;
+		while (node != null) {
+			size++;
+			node = node.getNext();
+		}
+		return size;
 	}
 }
