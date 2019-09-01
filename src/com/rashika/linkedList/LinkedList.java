@@ -19,6 +19,10 @@ public class LinkedList<T> {
 	public Node<T> getHead() {
 		return head;
 	}
+	
+	public void setHead(Node<T> head) {
+		this.head = head;
+	}
 
 	public void print() {
 		print(head);
@@ -50,5 +54,16 @@ public class LinkedList<T> {
 			node = node.getNext();
 		}
 		return node;
+	}
+	
+	@Override
+	public String toString() {
+		Node<T> node = head;
+		StringBuilder output = new StringBuilder();
+		while (node != null) {
+			output.append(node.getData().toString()).append(" ");
+			node = node.getNext();
+		}
+		return output.toString();
 	}
 }
